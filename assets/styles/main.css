@@ -138,7 +138,9 @@ p {
 em {
     color: var(--yellow-color);
 }
-
+#main {
+    overflow: clip;
+}
 .container {
     width: min(1280px, calc(100% - 32px));
     margin: 0 auto;
