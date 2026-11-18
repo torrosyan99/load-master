@@ -139,6 +139,7 @@ em {
     color: var(--yellow-color);
 }
 #main {
+    padding-top: 72px;
     overflow: clip;
 }
 .container {
@@ -151,7 +152,9 @@ em {
     background: color-mix(in srgb, var(--paper-color) 93%, transparent);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line-color);
-    position: sticky;
+    position: fixed;
+    left: 0;
+    right: 0;
     top: 0;
 
     z-index: 50;
@@ -1941,6 +1944,10 @@ em {
 @media (max-width: 850px) {
     .header {
         height: 66px;
+    }
+
+    #main {
+        padding-top: 66px;
     }
 
     .header__download {
