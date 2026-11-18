@@ -1937,7 +1937,6 @@ em {
 
 @media (max-width: 850px) {
     .header {
-        overflow-x: clip;
         height: 66px;
     }
 
