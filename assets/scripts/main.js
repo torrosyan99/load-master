@@ -150,3 +150,47 @@ initToggleGroup({
   itemSelector: "data-accordion",
   triggerSelector: "data-accordion-trigger"
 });
+
+function initContactForm(form) {
+  const submit = form.querySelector(".contact-form__submit");
+  const status = form.querySelector(".contact-form__status");
+  const { name, mobile, message } = form.elements;
+
+  form.addEventListener("input", (event) => {
+    event.target.setCustomValidity("");
+    status.textContent = "";
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (submit.disabled) return;
+
+    name.setCustomValidity(name.value.trim() ? "" : "Enter your name.");
+    message.setCustomValidity(message.value.trim() ? "" : "Enter your message.");
+    const phone = mobile.value.trim();
+    const digits = phone.replace(/\D/g, "");
+    const validPhone = /^\+?[\d ().-]+$/.test(phone) && digits.length >= 7 && digits.length <= 15;
+    mobile.setCustomValidity(validPhone ? "" : "Enter a mobile number with 7 to 15 digits.");
+    if (!form.reportValidity()) return;
+
+    submit.disabled = true;
+    status.textContent = "Sending…";
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form)
+      });
+      const result = await response.json();
+      status.textContent = result.message;
+      if (response.ok) form.reset();
+    } catch {
+      status.textContent = "We couldn’t confirm your submission. Please try again.";
+    } finally {
+      submit.disabled = false;
+    }
+  });
+}
+
+const contactForm = document.querySelector(".contact-form");
+if (contactForm) initContactForm(contactForm);

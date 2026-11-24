@@ -37,6 +37,7 @@
 		><a href="#team" class="header__link">Your team</a
 		><a href="#download" class="header__link">App</a>
 			<a href="#faq" class="header__link">FAQ</a>
+			<a href="#contact" class="header__link">Contact</a>
 		</nav>
 		<a class="button button--dark header__download" href="#"
 		>Download app
@@ -1013,7 +1014,7 @@
 		</div>
 	</section>
 
-	<section id="contact" class="contact section">
+	<section class="contact section">
 		<div class="container contact__layout">
 			<div data-aos="fade-up">
 				<span class="eyebrow"><i class="eyebrow__dot">
@@ -1193,6 +1194,40 @@
 	</section>
 
 
+	<section id="contact" class="contact section" aria-labelledby="contact-title">
+		<div class="container contact__panel">
+			<div class="contact__intro">
+				<div class="contact__copy">
+					<h2 id="contact-title" class="contact__heading">Contact<br>LoadMaster<span class="contact__accent">.</span></h2>
+					<p class="contact__lead">Send our team a message about the app or your account.</p>
+					<a class="contact__email" href="mailto:info@loadmasterg.com">
+						<svg class="icon" aria-hidden="true"><use href="assets/images/icons.svg#icon-mail"></use></svg>
+						info@loadmasterg.com
+					</a>
+				</div>
+				<img class="contact__art" src="assets/images/material-journey.png" alt="" width="2172" height="724" loading="lazy">
+			</div>
+			<form class="contact-form" action="contact.php" method="post">
+				<label class="contact-form__field contact-form__field--wide">Name
+					<input class="contact-form__input" type="text" name="name" autocomplete="name" maxlength="100" required>
+				</label>
+				<label class="contact-form__field">Email
+					<input class="contact-form__input" type="email" name="email" autocomplete="email" maxlength="254" required>
+				</label>
+				<label class="contact-form__field">Mobile
+					<input class="contact-form__input" type="tel" name="mobile" autocomplete="tel" maxlength="32" required>
+				</label>
+				<label class="contact-form__field contact-form__field--wide">Message
+					<textarea class="contact-form__input contact-form__input--message" name="message" rows="4" maxlength="4000" required></textarea>
+				</label>
+				<button class="button button--dark contact-form__submit" type="submit">
+					Submit
+					<svg class="icon button__icon" aria-hidden="true"><use href="assets/images/icons.svg#icon-arrow-right"></use></svg>
+				</button>
+				<p class="contact-form__status" role="status"></p>
+			</form>
+		</div>
+	</section>
 </main>
 
 <footer class="footer">
